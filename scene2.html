@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CO2 Emissions by Country and Year</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>CO2 Emissions by Country and Year</h1>
+      </header>
+      <section class="narrative">
+        <h2>Exploring CO2 Emissions</h2>
+
+        <p>
+          🌐 <strong>Why CO2 Emissions?</strong>: Carbon dioxide (CO2) emissions
+          are a significant contributor to global warming and climate change.
+        </p>
+
+        <ul>
+          <li>
+            🔍 Here we can compare CO2 emissions from various countries over the
+            years, highlighting the differences and similarities in how
+            countries contribute to global emissions.
+          </li>
+          <li>
+            🌎 Countries like China and the United States are often at the top
+            of the list of highest emitters due to their large populations and
+            industrial activities.
+          </li>
+          <li>
+            📊 The different shades of blue represent different years, showing
+            how emissions have changed over time. Some countries have seen a
+            steady increase, while others may have peaks and troughs.
+          </li>
+          <li>
+            🌍 Typically developed countries with large industrial bases
+            generally emit more CO2 than smaller, less industrialized nations.
+          </li>
+          <li>
+            🏭 Often, a country's CO2 emissions are closely tied to its economic
+            activities. Industrial growth, energy consumption, and
+            transportation are major sources of CO2 emissions.
+          </li>
+          <li>
+            📉 Changes in policy, such as the implementation of stricter
+            environmental regulations or international agreements like the Paris
+            Agreement, can have a significant impact on a country's emissions
+            profile.
+          </li>
+        </ul>
+
+        <p>
+          🛠️ Try selecting two countries below in the dropdown menus to see how
+          they contribute to global emissions and their changes over time.
+        </p>
+      </section>
+
+      <section class="chart-section">
+        <div>
+          <label for="country-select1">Select Country 1:</label>
+          <select id="country-select1"></select>
+          <label for="country-select2">Select Country 2:</label>
+          <select id="country-select2"></select>
+        </div>
+        <svg id="bar-chart" width="800" height="500"></svg>
+      </section>
+
+      <nav class="navigation">
+        <a href="scene1.html" class="button">Back</a>
+        <a href="scene3.html" class="button">Next</a>
+      </nav>
+    </div>
+
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="scene2.js"></script>
+  </body>
+</html>

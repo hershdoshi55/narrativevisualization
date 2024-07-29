@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CO2 Emissions: A Global Perspective</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="home.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>
+          Have you wondered just how drastic the effects of CO2 emissions are?
+        </h1>
+      </header>
+      <section class="intro">
+        <p>
+          <strong
+            >CO2 emissions are a critical factor in understanding climate
+            change. They not only contribute to global warming but also have
+            significant impacts on air quality, health, and ecosystems.</strong
+          >
+        </p>
+        <p>
+          This visualization explores CO2 emissions trends globally and
+          highlights the importance of mitigating these emissions to protect our
+          planet.
+        </p>
+        <div class="key-points">
+          <h2>Some interesting Finds:</h2>
+          <ul>
+            <li>
+              <strong>Global Increase in CO2 Emissions:</strong> Global CO2
+              emissions have increased by
+              <span id="global-increase"></span> metric tons over the years,
+              reflecting the significant impact of industrial activities and
+              energy consumption.
+            </li>
+            <li>
+              <strong>Notable Trends:</strong> The data reveals notable trends,
+              such as spikes in emissions during periods of rapid
+              industrialization and decreases during economic recessions.
+            </li>
+          </ul>
+          <a href="https://www.kaggle.com/datasets/lobosi/c02-emission-by-countrys-grouth-and-population" target="_blank">Data Source</a>
+        </div>
+        <a href="scene1.html" class="start-button">Start Exploring</a>
+      </section>
+    </div>
+
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script>
+      d3.csv("energy.csv").then((data) => {
+        data.forEach((d) => {
+          d.Year = +d.Year;
+          d.CO2_emission = +d.CO2_emission;
+        });
+
+        const globalEmissionsByYear = d3.rollups(
+          data,
+          (v) => d3.sum(v, (d) => d.CO2_emission),
+          (d) => d.Year
+        );
+
+        globalEmissionsByYear.sort((a, b) => a[0] - b[0]);
+
+        const firstYear = globalEmissionsByYear[0][0];
+        const lastYear =
+          globalEmissionsByYear[globalEmissionsByYear.length - 1][0];
+        const firstYearEmissions = globalEmissionsByYear[0][1];
+        const lastYearEmissions =
+          globalEmissionsByYear[globalEmissionsByYear.length - 1][1];
+        const increase = lastYearEmissions - firstYearEmissions;
+        const percentageIncrease =
+          (lastYearEmissions / firstYearEmissions - 1) * 100;
+
+        document.getElementById(
+          "global-increase"
+        ).textContent = `${increase.toLocaleString()} metric tons, a ${percentageIncrease.toFixed(
+          2
+        )}% increase`;
+      });
+    </script>
+  </body>
+</html>

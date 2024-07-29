@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Global CO2 Emissions Overview</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Global CO2 Emissions Overview</h1>
+      </header>
+      <section class="narrative">
+        <h2>Global Trends and Anomalies</h2>
+        <ul class="narrative-list">
+          <li>
+            <span>🔺 <strong>Increasing Trend:</strong></span> Over the past few
+            decades, global CO2 emissions have shown a clear upward trend,
+            largely driven by industrial activities and energy consumption.
+          </li>
+          <li>
+            <span>📉 <strong>Key Events:</strong></span> Significant spikes and
+            drops in emissions occurred during the economic recessions of the
+            early 1980s and 2008-2009, and periods of rapid industrialization.
+            International agreements, such as the Kyoto Protocol (1997) and the
+            Paris Agreement (2015), have also influenced emission levels.
+          </li>
+          <li>
+            <span>🌍 <strong>Implications:</strong></span> The steady increase
+            in CO2 emissions contributes significantly to global warming and
+            climate change, highlighting the urgent need for sustainable
+            practices and international cooperation.
+          </li>
+          <li>
+            <span>🔍 <strong>How to Use:</strong></span> Try selecting a country
+            from the dropdown and you should see the CO2 Emissions by year.
+          </li>
+        </ul>
+      </section>
+      <section class="chart-section">
+        <p>Select a country to view its CO2 emissions trend:</p>
+        <select id="country-select">
+          <option value="Global">Global</option>
+        </select>
+        <svg id="line-chart" width="800" height="500"></svg>
+      </section>
+      <nav class="navigation">
+        <a href="index.html" class="button">Home</a>
+        <a href="scene2.html" class="button">Next</a>
+      </nav>
+    </div>
+
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="scene1.js"></script>
+  </body>
+</html>
